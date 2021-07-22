@@ -8,15 +8,23 @@
 
 {% block content %}
   {% for message in messages %}
-    <div class="container">
-      <h1>{{ message }}</h1>
+    <div class="div-container">
+      <div class="alert alert-success" role="alert">
+        {{ message }}
+      </div>
     </div>
   {% endfor %}
 
-  <div class="container">
-    <strong><p>Username: </p></strong><p>{{ user }}</p>
-    <strong><p>Name: </p></strong><p>{{ user.name }}</p>
-    <strong><p>Email: </p></strong><p>{{ user.email }}</p>
+  <div class="div-container">
+    <div>
+      <h2>Profile: {{ user }}</h2>
+    </div>
+
+    <div>
+      <p><strong>Username: </strong>{{ user }}</p>
+      <p><strong>Name: </strong>{{ user.name }}</p>
+      <p><strong>Email: </strong>{{ user.email }}</p>
+    </div>
   </div>
 
 {% endblock content %}

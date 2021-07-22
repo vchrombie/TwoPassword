@@ -8,12 +8,11 @@
 
 {% block content %}
 
-  <div class="container">
-    <h1>Successfuly logged out!</h1>
-  </div>
-
-  <div class="container">
-      <a href="{% url 'login' %}">Login</a>
+  <div class="div-container">
+    <div class="alert alert-primary" role="alert">
+      Successfuly logged out!
+    </div>
+    <a href="{% url 'login' %}"><button class="btn btn-primary">Login</button></a>
   </div>
 
 {% endblock content %}
