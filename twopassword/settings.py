@@ -126,3 +126,6 @@ STATIC_URL = '/static/'
 
 # Use "accounts" model instead of the default django one
 AUTH_USER_MODEL = 'accounts.User'
+
+# Redirect to "home" after login
+LOGIN_REDIRECT_URL = 'home'

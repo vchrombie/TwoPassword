@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+  Login
+{% endblock title %}
+
+{% block content %}
+  {% for message in messages %}
+    <div class="container">
+      <h1>{{ message }}</h1>
+    </div>
+  {% endfor %}
+
+  <form method="post" class="container">
+    {% csrf_token %}
+    <p>{{ form.as_p }}</p>
+    <button type="submit">Login</button>
+  </form>
+
+{% endblock content %}
