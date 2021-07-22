@@ -1,11 +1,21 @@
 from django.shortcuts import render, redirect
-from accounts.forms import UserRegisterForm
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
+from django.contrib.auth.hashers import check_password
+
+from .forms import UserRegisterForm
+from .models import User
 
 
+@login_required
 def account(request):
-    if request.method == "POST":
-        pass
-    return
+    messages.success(request, "Login successful!")
+    context = {
+        'user': request.user,
+        'confirmed': False,
+    }
+
+    return render(request, "accounts/account.html", context)
 
 
 def register(request):
@@ -13,7 +23,8 @@ def register(request):
         form = UserRegisterForm(request.POST)
         if form.is_valid():
             form.save()
-            # return redirect('home')
+            messages.success(request, "Account created! Please login.")
+            return redirect('login')
     else:
         form = UserRegisterForm()
 

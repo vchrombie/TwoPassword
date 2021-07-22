@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+  Profile: {{ user }}
+{% endblock title %}
+
+{% block content %}
+  {% for message in messages %}
+    <div class="container">
+      <h1>{{ message }}</h1>
+    </div>
+  {% endfor %}
+
+  <div class="container">
+    <strong><p>Username: </p></strong><p>{{ user }}</p>
+    <strong><p>Name: </p></strong><p>{{ user.name }}</p>
+    <strong><p>Email: </p></strong><p>{{ user.email }}</p>
+  </div>
+
+{% endblock content %}

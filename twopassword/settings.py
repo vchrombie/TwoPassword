@@ -128,4 +128,4 @@ STATIC_URL = '/static/'
 AUTH_USER_MODEL = 'accounts.User'
 
 # Redirect to "home" after login
-LOGIN_REDIRECT_URL = 'home'
+LOGIN_REDIRECT_URL = 'account'
