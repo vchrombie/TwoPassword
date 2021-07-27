@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+Passwords: {{ pwd }}
+{% endblock title %}
+
+{% block content %}
+
+{% for message in messages %}
+<div class="div-container">
+    <div class="alert success" role="alert">
+        {{ message }}
+    </div>
+</div>
+{% endfor %}
+
+
+<div class="div-container">
+    <div>
+        <h2>Password: {{ pwd }}</h2>
+    </div>
+
+    <div>
+        <p><strong>Link: </strong>{{ pwd.website_link }}</p>
+        <p><strong>Username: </strong>{{ pwd.website_username }}</p>
+        <p><strong>Notes: </strong>{{ pwd.website_notes }}</p>
+    </div>
+
+    <div>
+
+        {% if not confirmed %}
+        <form method="post">
+            {% csrf_token %}
+            <h3>Master Password: </h3>
+            <input type="password" name="master_password">
+            <input class="btn btn-primary" type="submit" value="Submit">
+        </form>
+        {% endif %}
+
+        {% if confirmed %}
+        <p><strong>Password: </strong>{{ website_password }}</p>
+        {% elif message %}
+        <div class="div-container">
+            <div class="alert alert-danger" role="alert">
+                {{ message }}
+            </div>
+        </div>
+        {% endif %}
+
+    </div>
+</div>
+
+{% endblock content %}

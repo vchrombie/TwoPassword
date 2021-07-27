@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+Add Password
+{% endblock title %}
+
+{% block content %}
+
+{% for message in messages %}
+<div class="div-container">
+    <div class="alert error" role="alert">
+        {{ message }}
+    </div>
+</div>
+{% endfor %}
+
+
+<div class="div-container">
+    <div>
+        {% if pwd %}
+        {% for row in pwd %}
+        <h2><a href="{% url 'view' row.id %}">{{ row }}</a></h2>
+        {% endfor %}
+        {% else %}
+        <h2>Add Password</h2>
+        {% endif %}
+    </div>
+</div>
+
+<div>
+    <form method="post">
+        {% csrf_token %}
+        <div class="div-container">
+            <p>Website name: <input type="text" name="website_name"></p>
+            <p>Website link: <input type="url" name="website_link"></p>
+            <p>Website username: <input type="text" name="website_username"></p>
+            <p>Website password: <input type="password" name="website_password"></p>
+            <p>Website notes: <input type="text" name="website_notes"></p>
+
+            <input class="btn btn-primary" type="submit" value="Submit">
+        </div>
+    </form>
+</div>
+
+{% endblock content %}
