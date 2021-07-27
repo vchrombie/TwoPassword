@@ -3,23 +3,23 @@
 {% load static %}
 
 {% block title %}
-  Register
+Register
 {% endblock title %}
 
 {% block content %}
 
-  <div class="div-container">
+<div class="div-container">
     <div>
-      <h2>Register</h2>
+        <h2>Register</h2>
     </div>
 
     <div>
-      <form method="post" class="div-container">
-        {% csrf_token %}
-        <p>{{ form.as_p }}</p>
-        <button class="btn btn-primary" type="submit">Register</button>
-      </form>
+        <form method="post" class="div-container">
+            {% csrf_token %}
+            <p>{{ form.as_p }}</p>
+            <button class="btn btn-primary" type="submit">Register</button>
+        </form>
     </div>
-  </div>
+</div>
 
 {% endblock content %}

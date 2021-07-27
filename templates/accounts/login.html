@@ -3,30 +3,36 @@
 {% load static %}
 
 {% block title %}
-  Login
+Login
 {% endblock title %}
 
 {% block content %}
-  {% for message in messages %}
-    <div class="div-container">
-      <div class="alert alert-success" role="alert">
+{% for message in messages %}
+<div class="div-container">
+    <div class="alert alert-success" role="alert">
         {{ message }}
-      </div>
     </div>
-  {% endfor %}
+</div>
+{% endfor %}
 
-  <div class="div-container">
+<div class="div-container">
     <div>
-      <h2>Login</h2>
+        <h2>Login</h2>
     </div>
 
     <div>
-      <form method="post" class="container">
-        {% csrf_token %}
-        <p>{{ form.as_p }}</p>
-        <button class="btn btn-primary" type="submit">Login</button>
-      </form>
+        <form method="post" class="container">
+            {% csrf_token %}
+            <p>{{ form.as_p }}</p>
+            <button class="btn btn-primary" type="submit">Login</button>
+        </form>
     </div>
-  </div>
+
+    <br>
+
+    <div>
+        <h4>If you don't have one, please <a href="{% url 'register' %}">register</a>.</h4>
+    </div>
+</div>
 
 {% endblock content %}

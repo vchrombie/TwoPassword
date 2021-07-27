@@ -3,28 +3,46 @@
 {% load static %}
 
 {% block title %}
-  Profile: {{ user }}
+Profile: {{ user }}
 {% endblock title %}
 
 {% block content %}
-  {% for message in messages %}
-    <div class="div-container">
-      <div class="alert alert-success" role="alert">
+{% for message in messages %}
+<div class="div-container">
+    <div class="alert alert-success" role="alert">
         {{ message }}
-      </div>
     </div>
-  {% endfor %}
+</div>
+{% endfor %}
 
-  <div class="div-container">
+<div class="div-container">
     <div>
-      <h2>Profile: {{ user }}</h2>
+        <h2>Profile</h2>
     </div>
 
     <div>
-      <p><strong>Username: </strong>{{ user }}</p>
-      <p><strong>Name: </strong>{{ user.name }}</p>
-      <p><strong>Email: </strong>{{ user.email }}</p>
+        <p><strong>Username: </strong>{{ user }}</p>
+        <p><strong>Name: </strong>{{ user.first_name }} {{ user.last_name }}</p>
+        <p><strong>Email: </strong>{{ user.email }}</p>
     </div>
-  </div>
+</div>
+
+<div class="div-container">
+    <div>
+        <a href="{% url 'home' %}">
+            <button class="btn btn-primary">Check the Passwords</button>
+        </a>
+    </div>
+</div>
+
+<br>
+
+<div class="div-container">
+    <div>
+        <a href="{% url 'add' %}">
+            <button class="btn btn-primary">Add Password</button>
+        </a>
+    </div>
+</div>
 
 {% endblock content %}
